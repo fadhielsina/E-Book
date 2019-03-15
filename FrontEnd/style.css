@@ -1,0 +1,39 @@
+    .footer {
+    position: inherit;
+    margin-top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 1rem;
+    background-color: #352b2b;
+    text-align: center;
+  }
+
+  .footer-admin {
+    position: absolute;
+    margin-top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 1rem;
+    background-color: #352b2b;
+    text-align: center;
+  }
+
+  .footer-home {
+    position: inherit;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    padding: 1rem;
+    background-color: #352b2b;
+    text-align: center;
+  }
+
+  .fas {
+    margin-left: 20px;
+    margin-right: 20px;
+  }

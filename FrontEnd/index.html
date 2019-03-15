@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- connect to css style -->
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- footer -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- icon title -->
+    <link rel="icon" type="image/x-icon" href="image/books.png"/>
+    <title>Library</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <i class="fas fa-book-open fa-2x" style="color:white"></i>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="loaning.html">Borrowing</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <!-- navbar -->
+
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid bg-light">
+      <div class="container">
+          <h1 class="display-4">Welcome :)</h1>
+          <p class="lead">
+                  Reading is an activity that is very useful because it can add insight and knowledge.
+                  we lend books to you for free and easily.                    
+                  The requirement is only to fill in the form according to the data that you have.
+                  we believe you will be able to be responsible for any consequences.
+                  Happy reading :)</p>
+          <center> <a class="btn btn-primary" href="loaning.html" role="button">Start Borrowing</a> </center>
+      </div>
+    </div>
+    <!-- jumbotron -->
+        
+    <!-- grid -->
+    <div class="container mt-4 mb-5">
+          <div class="row">
+            <div class="col">
+              <h3 style="text-align:center"><u> ADMIN </u></h3>
+              <form onsubmit="event.preventDefault(); logIn();" method="POST" >
+                  <div class="mt-4 mr-sm-4">
+                      <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" id="index_in_email" aria-describedby="emailHelp" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="index_in_password" placeholder="Password">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Sign In</button>
+                  </div>
+                  </form>
+            </div>
+            <div class="col">
+              <h3 style="text-align:center"><u> UPDATE </u></h3>
+              <div class="mt-4">
+                      <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">ID</th>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Category</th>
+                                </tr>
+                              </thead>
+                              <tbody id="table_book">
+                              </tbody>
+                            </table>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer-home">Copyright © 2019 TuUr Inc. <strong>All rights reserved.</strong>
+    </div>
+    <!-- footer -->
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script>
+      allBook()
+    </script>
+  </body>
+</html>
