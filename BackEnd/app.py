@@ -160,6 +160,17 @@ def submitBorrowe():
     else:
         return 'Method Not Allowed', 405
 
+@app.route('/showhistory')
+def showHistory():
+    allhistory = Loan.query.all()
+    history_json = {
+        'name' : fields.String,
+        'phone' : fields.String,
+        'name_book' : fields.String,
+        'start' : fields.String,
+        'end' : fields.String
+    }
+    return json.dumps(marshal(allhistory, history_json)), 200
 
 if __name__ == '__main__':
     app.run(debug=True)

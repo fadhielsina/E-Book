@@ -11,7 +11,7 @@
   }
 
   .footer-admin {
-    position: absolute;
+    position: inherit;
     margin-top: 50px;
     right: 0;
     bottom: 0;

@@ -125,33 +125,76 @@ function showBooklist(){
     }
 }
 
-function submitBorrowing(){
-    name = document.getElementById("loan_in_name").value;
-    phone = document.getElementById("loan_in_phone").value;
-    name_book = document.getElementById("book_name").value;
-    start = document.getElementById("loan_date_start").value;
-    end = document.getElementById("loan_date_end").value;
-
+function showHistoryBorrow(){
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:5000/submitborrower");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify({
-        "name" : name,
-        "phone" : phone,
-        "name_book": name_book,
-        "start": start,
-        "end" : end
-    }));
-
-    xhr.onreadystatechange = function() {
-         
-        if(this.readyState == 4 && this.status == 200){
-            alert('the book was successfully borrowed')
-            window.location = "/loaning.html";
-
-        } else if(this.readyState == 4){
-            respon = JSON.parse(this.response)
-            alert(respon.message + this.status);
+    xhr.open("GET", "http://127.0.0.1:5000/showhistory")
+    xhr.send()
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200){
+                   // console.log(this.response)
+                hasil = JSON.parse(this.response)
+                console.log(hasil)
+                
+                hasil.forEach((data) => {
+                    document.getElementById('historyBorrow').innerHTML += `
+                    <tr>
+                        <th>${data.name}</th>
+                        <td>${data.phone}</td>
+                        <td>${data.name_book}</td>
+                        <td>${data.start}</td>
+                        <td>${data.end}</td>
+                    </tr>`
+                    
+                });
         }
-    };
+    }   
+}
+
+function submitBorrowing(){
+    names = document.getElementById("loan_in_name").value;
+    phones = document.getElementById("loan_in_phone").value;
+    name_books = document.getElementById("book_name").value;
+    starts = document.getElementById("loan_date_start").value;
+    ends = document.getElementById("loan_date_end").value;
+
+    if (names != "" && phones != "" && name_books != "" && starts != "" && ends != "" ){
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/submitborrower");
+        xhr.setRequestHeader("Content-Type", "application/json");
+    
+
+        xhr.send(JSON.stringify({
+            "name" : names,
+            "phone" : phones,
+            "name_book": name_books,
+            "start": starts,
+            "end" : ends
+        }));
+    
+        xhr.onreadystatechange = function() {
+             
+            if(this.readyState == 4 && this.status == 200){
+                // alert('the book was successfully borrowed')
+                // window.location = "/loaning.html";
+    
+            } else if(this.readyState == 4){
+                respon = JSON.parse(this.response)
+                alert(respon.message + this.status);
+            }
+        };
+
+        document.getElementById('historyborrow').innerHTML += `
+        <center>
+        <li>Name: ${names}</li>
+        <li>Phone: ${phones}</li>
+        <li>Name Book: ${name_books}</li>
+        <li>Start Borrowing: ${starts}</li>
+        <li>End Borrowing: ${ends}</li>
+        </center>`
+
+    } else {
+        alert("please insert form");
+        return false;
+    }
 }
